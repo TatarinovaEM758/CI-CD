@@ -7,7 +7,7 @@ CMS (Контент-аналитика). Запустить контейнер. 
 •	Ход выполнения работы:
 o	Успешное выполнения команд docker version, docker run hello-world.
  
-  ![](https://github.com/TatarinovaEM758/CI-CD/blob/main/lab_1/images/run%20create.png)
+  ![](https://github.com/TatarinovaEM758/CI-CD/blob/main/lab_1/images/version%20i%20helloword.png)
   
  ![](https://github.com/TatarinovaEM758/CI-CD/blob/main/lab_1/images/work%20brouser.png)
 
