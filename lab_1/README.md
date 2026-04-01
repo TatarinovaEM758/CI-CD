@@ -12,7 +12,7 @@ o	Успешное выполнения команд docker version, docker run 
 o	 Docker ps – выводит запущенные контейнеры
 o	Docker images – выводит список всех образов
  
- 
+  ![](https://github.com/TatarinovaEM758/CI-CD/blob/main/lab_1/images/version%20i%20helloword.png)
 
 
 Используя образ wordpress:
