@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fastapi-app
+  labels:
+    app: fastapi
+    tier: backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: fastapi
+  template:
+    metadata:
+      labels:
+        app: fastapi
+        tier: backend
+    spec:
+      containers:
+      - name: fastapi
+        image: localhost:32000/fastapi-analytics:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8000
+        env:
+        - name: DATABASE_HOST
+          value: "postgres-service"
+        - name: DATABASE_PORT
+          value: "5432"
+        - name: DATABASE_USER
+          value: "fastapi_user"
+        - name: DATABASE_PASSWORD
+          value: "secure_password_123"
+        - name: DATABASE_NAME
+          value: "analytics_db"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
